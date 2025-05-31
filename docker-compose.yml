@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./src
+      dockerfile: ../docker/ruby/Dockerfile
+    volumes:
+      - ./src:/src
+    ports:
+      - "3000:3000"
+    working_dir: /src
+    command: bash -c "bundle install && rails server -b 0.0.0.0"
+    environment:
+      - RAILS_ENV=development
