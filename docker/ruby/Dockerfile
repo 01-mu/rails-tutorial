@@ -2,13 +2,13 @@
 FROM ruby:3.2.8-slim
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libsqlite3-dev nodejs npm curl
+    apt-get install -y build-essential libsqlite3-dev nodejs npm curl libyaml-dev
 
 RUN npm install --global yarn
 
 WORKDIR /src
 
-RUN gem install rails -v 7.0.0
+# RUN gem install rails -v 7.0.0
 
 COPY Gemfile Gemfile.lock ./
 
